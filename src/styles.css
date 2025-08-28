@@ -1,0 +1,143 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+/* -------My Styles--------*/
+body {
+  background-color: #e0f7fa;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  gap: 100px;
+}
+
+.submit {
+  background-color: #ffb300;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+input[type="text"] {
+  border-radius: 8px;
+  border: 1px solid beige;
+  background-color: beige;
+  padding: 0.5rem;
+}
+label {
+  color: #01579b;
+  font-size: large;
+}
+
+.weatherCard.loaded {
+  border: 1px solid #ffffff;
+  background-color: cornsilk;
+  display: flex;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 12px;
+  flex-direction: column;
+}
+.icon {
+  align-self: center;
+}
+img {
+  height: 50%;
+  width: 100%;
+}
+.info {
+  font-size: x-large;
+}
+.info:nth-child(2) {
+  margin: 12px 0;
+}
+
+.loading {
+  color: #01579b;
+  font-size: xx-large;
+}
+.error {
+  display: none;
+}
+.error.errorPresent {
+  display: block;
+  color: red;
+  font-size: xx-large;
+  max-width: 20ch;
+  font-style: italic;
+  text-align: center;
+  padding: 15px;
+}
+.weatherInfo {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 1rem;
+}
