@@ -180,7 +180,7 @@ body {
 }
 
 .fetchSection .city::after {
-  content: ’’;
+  content: "";
 
   width: 90%;
 
