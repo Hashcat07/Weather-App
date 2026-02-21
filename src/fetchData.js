@@ -1,27 +1,29 @@
 async function fetchData(city) {
   try {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/today?unitGroup=metric&include=current&key=6MKGMYBFB8YRNATYGRPKTHJ34&contentType=json`;
+    const key = "6MKGMYBFB8YRNATYGRPKTHJ34";
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/today?unitGroup=metric&include=current&key=${key}&contentType=json`;
+
     const response = await fetch(url, { mode: "cors" });
+
     if (!response.ok) {
-      throw new Error(`${response.status}`);
+      throw new Error(`City ${city} Not Found`);
     }
+
     const data = await response.json();
-    const cityWeather = {
+
+    return {
       city: data.address,
-      datetime: data.currentConditions.datetime,
-      condition: data.currentConditions.conditions,
+      timezone: data.timezone,
+      temp: data.currentConditions.temp,
+      conditions: data.currentConditions.conditions,
       icon: data.currentConditions.icon,
     };
-    return cityWeather;
   } catch (error) {
-    if (error.message === "400" || error.message === "404") {
-      throw new Error("Invalid City Name");
-    }
-    throw new Error(
-      "Please Check Your Internet Connection or Uhh try afer a few minutes",
-    );
+    console.error("Fetch Error:", error);
+    throw error;
   }
 }
+
 function fetchWeather(city) {
   return fetchData(city);
 }
